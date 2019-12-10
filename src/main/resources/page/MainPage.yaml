@@ -1,0 +1,12 @@
+methods:
+  toSearchPage:
+    steps:
+      - element: edit_search_out
+
+
+elements:
+  edit_search_out:
+    element:
+      - id: edit_search_out
+        os: android
+        version: 1.0

@@ -1,0 +1,18 @@
+# 此文件为Appium运行启动的配置文件
+
+appiumConfig:
+  app:
+  url: http://127.0.0.1:4723/wd/hub
+  wait: 6
+  version: 1.0
+  capabilities:
+    platformName: Android    # 对应os
+    deviceName: FKFBB19120151160
+    appPackage: com.medical.fast
+    appActivity: .ui.activity.WelComeActivity
+    autoGrantPermissions: true
+    unicodeKeyboard: true
+    resetKeyboard: true
+    automationName: uiautomator2
+    #chromedriverExecutableDir: D:\QinZhen\TestDev\chromedrivers\
+    noReset: true  #真机测试时往往不需要每次清理数据和缓存
