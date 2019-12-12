@@ -11,7 +11,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class App {
-    static AppiumDriver driver;
+    public static AppiumDriver driver;
     private static GlobalConfig globalConfig = new GlobalConfig().loadConfig("/driver/GlobalConfig.yaml");
     private static App app;
     public static App getInstance(){

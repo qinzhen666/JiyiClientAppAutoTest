@@ -2,19 +2,24 @@ package page;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import driver.App;
 import driver.Element;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import util.ScrollSelectUtil;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class BasePage {
 
-//    private PageObjectModel model = new PageObjectModel();
     private HashMap<String,String> sendParam = new HashMap<>();  //send传递
     private HashMap<String,Object> attributeResult = new HashMap<>(); //attribute传递
 
@@ -116,11 +121,6 @@ public class BasePage {
                         assert webElement != null;
                         String attribute = webElement.getAttribute(step.get("get"));
                         attributeResult.put(step.get("dump"),attribute);
-                    }else if (step.get("scrollSelect") != null){
-                        String[] split = step.get("scrollSelect").split("$");
-                        String byType = split[0];
-                        String typeValue = split[1];
-                        new ScrollSelectUtil().scrollSelect(byType,typeValue);
                     }
                     else {
                         assert webElement != null;
@@ -138,8 +138,36 @@ public class BasePage {
                     int size = elementList.size();
                     attributeResult.put("size",size);
                 }
+            }else if (step.get("scrollSelect") != null){
+                String[] split = step.get("scrollSelect").split("$");
+                String byType = split[0];
+                String typeValue = split[1];
+                new ScrollSelectUtil().scrollSelect(byType,typeValue);
+            }else if (step.get("scroll") != null){
+                Integer times = Integer.parseInt(step.get("scroll"));
+                String[] pressProportion = step.get("press").split("$");
+                Integer pressProportionX = Integer.parseInt(pressProportion[0]);
+                Integer pressProportionY = Integer.parseInt(pressProportion[1]);
+                String[] moveToProportion = step.get("moveTo").split("$");
+                Integer moveToProportionX = Integer.parseInt(moveToProportion[0]);
+                Integer moveToProportionY = Integer.parseInt(moveToProportion[1]);
+                for (Integer i = 0; i < times; i++) {
+                    TouchAction action = new TouchAction(App.getInstance().driver);
+                    Dimension size = App.getInstance().driver.manage().window().getSize();
+                    Duration duration = Duration.ofMillis(500);
+                    action
+                    .press(PointOption.point(size.width*pressProportionX,size.height*pressProportionY))
+                    .waitAction(WaitOptions.waitOptions(duration))
+                    .moveTo(PointOption.point(size.width*moveToProportionX,size.height*moveToProportionY))
+                    .release().perform();
+                    System.out.println("当前滑动第 " + i+ "次");
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-
         });
     }
 }
