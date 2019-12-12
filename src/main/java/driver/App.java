@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class App {
     static AppiumDriver driver;
-    private GlobalConfig globalConfig = new GlobalConfig().loadConfig("/driver/GlobalConfig.yaml");
+    private static GlobalConfig globalConfig = new GlobalConfig().loadConfig("/driver/GlobalConfig.yaml");
     private static App app;
     public static App getInstance(){
         if (app == null){
@@ -41,7 +41,7 @@ public class App {
         //判断首页是否进入
         new WebDriverWait(driver,15).until(x->{
            String xml = driver.getPageSource();
-           Boolean checkMainPage = xml.contains("com.medical.fast:id/bar_left_btn");
+           Boolean checkMainPage = xml.contains("com.medical.fast:id/txt_title");
             System.out.println("主页元素查找结果："+checkMainPage);
             return checkMainPage;
         });

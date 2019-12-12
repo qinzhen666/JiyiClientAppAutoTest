@@ -9,5 +9,8 @@
         <module name="JiyiClientApp" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="JiyiMerchantApp" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,4 +1,23 @@
+#搜索页PO所需定位符：
+#   Android定位符：
+#      搜索输入框： id: edit_search_in    text: 输入商品名、通用名、批准文号
+#      搜索按钮：id: bar_right_text   text: 搜索
+#      返回：id: bar_left_btn
+#      删除历史记录：id: image_delete
+#      删除输入框内容：id: img_delete
+       历史搜索：xpath: //*[contains(@resource-id,'tagFlowLayout_history')]/[@resource-id='com.medical.fast:id/txt_']
+       药店搜索：xpath: (//*[contains(@resource-id,'relative_item')])[1]
+       药品搜索：xpath: (//*[contains(@resource-id,'relative_item')])[2]
+
+#   IOS定位符：
+
+
+
 methods:
   search:
     steps:
-      - element:
+      - scroll: 3         #设置滚动次数
+        press:
+        moveto:
+      - element: 搜索输入框
+        scrollSelect: $text$感冒灵

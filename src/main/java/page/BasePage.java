@@ -5,8 +5,10 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import driver.Element;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import util.ScrollSelectUtil;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,9 +16,9 @@ public class BasePage {
 
 //    private PageObjectModel model = new PageObjectModel();
     private HashMap<String,String> sendParam = new HashMap<>();  //send传递
-    private HashMap<String,String> attributeResult = new HashMap<>(); //attribute传递
+    private HashMap<String,Object> attributeResult = new HashMap<>(); //attribute传递
 
-    public HashMap<String, String> getAttributeResult() {
+    public HashMap<String, Object> getAttributeResult() {
         return attributeResult;
     }
 
@@ -102,26 +104,42 @@ public class BasePage {
                 System.out.println("开始查找element");
                 System.out.println(step.get("element"));
                 System.out.println("==="+model.elements.get("edit_search_out"));
-                webElement = find(model.elements.get(step.get("element")).getLocator());
-                /*if (step.get("finds") == null){
-                    element = find(model.elements.get(step.get("element")).getLocator());
-                }else {
+//                webElement = find(model.elements.get(step.get("element")).getLocator());
+                if (step.get("finds") == null){
+                    webElement = find(model.elements.get(step.get("element")).getLocator());
+                    //获取行为流
+                    if (step.get("send") != null){
+                        String send = step.get("send").replace("$sendText", sendParam.get("sendText"));
+                        assert webElement != null;
+                        webElement.sendKeys(send);
+                    }else if (step.get("get") != null){
+                        assert webElement != null;
+                        String attribute = webElement.getAttribute(step.get("get"));
+                        attributeResult.put(step.get("dump"),attribute);
+                    }else if (step.get("scrollSelect") != null){
+                        String[] split = step.get("scrollSelect").split("$");
+                        String byType = split[0];
+                        String typeValue = split[1];
+                        new ScrollSelectUtil().scrollSelect(byType,typeValue);
+                    }
+                    else {
+                        assert webElement != null;
+                        webElement.click();
+                    }
+                }else if (step.get("finds").equals("text")){
                     elementList = finds(model.elements.get("element").getLocator());
-                }*/
+                    List<String> eleText = new ArrayList<>();
+                    elementList.forEach(ele->{
+                        eleText.add(ele.getText());
+                    });
+                    attributeResult.put("findsTextList",eleText);
+                }else if (step.get("finds").equals("size")){
+                    elementList = finds(model.elements.get("element").getLocator());
+                    int size = elementList.size();
+                    attributeResult.put("size",size);
+                }
             }
-            //获取行为流
-            if (step.get("send") != null){
-                String send = step.get("send").replace("$sendText", sendParam.get("sendText"));
-                assert webElement != null;
-                webElement.sendKeys(send);
-            }else if (step.get("get") != null){
-                assert webElement != null;
-                String attribute = webElement.getAttribute(step.get("get"));
-                attributeResult.put(step.get("dump"),attribute);
-            }else {
-                assert webElement != null;
-                webElement.click();
-            }
+
         });
     }
 }
