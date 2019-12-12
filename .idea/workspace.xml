@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00f43f77-1ffc-4017-8343-19960a4014fe" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/page/search/SearchPageTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/driver/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/page/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/page/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/page/example.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/page/example.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/page/search/SearchPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/page/search/SearchPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/page/search/SearchPage.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/page/search/SearchPage.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/driver/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/driver/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/page/BasePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/page/BasePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/page/search/SearchPage.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/page/search/SearchPage.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -35,10 +39,18 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="page.search" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -61,7 +73,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestDemo.mainTest">
+  <component name="RunManager" selected="JUnit.SearchPageTest.scroll">
+    <configuration name="SearchPageTest.scroll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JiyiClientApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="page.search.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="page.search" />
+      <option name="MAIN_CLASS_NAME" value="page.search.SearchPageTest" />
+      <option name="METHOD_NAME" value="scroll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestDemo.mainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JiyiClientApp" />
       <option name="PACKAGE_NAME" value="" />
@@ -84,6 +112,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SearchPageTest.scroll" />
         <item itemvalue="JUnit.TestDemo.mainTest" />
         <item itemvalue="JUnit.TestDemo.test" />
       </list>
@@ -100,6 +129,14 @@
       <option name="presentableId" value="Default" />
       <updated>1575548205027</updated>
     </task>
+    <task id="LOCAL-00001" summary="修改scrollSelect逻辑，增加scroll方法">
+      <created>1576135860713</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1576135860713</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,6 +151,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修改scrollSelect逻辑，增加scroll方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改scrollSelect逻辑，增加scroll方法" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

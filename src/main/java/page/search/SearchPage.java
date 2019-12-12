@@ -6,4 +6,8 @@ public class SearchPage extends BasePage {
     public void search(){
         parseSteps();
     }
+
+    public void scroll(){
+        parseSteps();
+    }
 }

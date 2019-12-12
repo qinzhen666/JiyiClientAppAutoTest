@@ -139,26 +139,35 @@ public class BasePage {
                     attributeResult.put("size",size);
                 }
             }else if (step.get("scrollSelect") != null){
-                String[] split = step.get("scrollSelect").split("$");
+                String[] split = step.get("scrollSelect").split("-");
                 String byType = split[0];
                 String typeValue = split[1];
                 new ScrollSelectUtil().scrollSelect(byType,typeValue);
             }else if (step.get("scroll") != null){
                 Integer times = Integer.parseInt(step.get("scroll"));
-                String[] pressProportion = step.get("press").split("$");
-                Integer pressProportionX = Integer.parseInt(pressProportion[0]);
-                Integer pressProportionY = Integer.parseInt(pressProportion[1]);
-                String[] moveToProportion = step.get("moveTo").split("$");
-                Integer moveToProportionX = Integer.parseInt(moveToProportion[0]);
-                Integer moveToProportionY = Integer.parseInt(moveToProportion[1]);
+                System.out.println("step.get(\"press\")=="+step.get("press"));
+                String[] pressProportion = step.get("press").split("-");
+                for (String s : pressProportion) {
+                    System.out.println(s);
+                }
+                System.out.println("pressProportionX===="+step.get("press").split("-")[1]);
+                int pressXNumerator = Integer.parseInt(pressProportion[0].split("/")[0]);  //起始点x坐标分子
+                int pressXDenominator = Integer.parseInt(pressProportion[0].split("/")[1]); //起始点x坐标分母
+                int pressYNumerator = Integer.parseInt(pressProportion[1].split("/")[0]); //起始点y坐标分子
+                int pressYDenominator = Integer.parseInt(pressProportion[1].split("/")[1]); //起始点y坐标分母
+                String[] moveToProportion = step.get("moveTo").split("-");
+                int moveToXNumerator = Integer.parseInt(moveToProportion[0].split("/")[0]);  //结束点x坐标分子
+                int moveToXDenominator = Integer.parseInt(moveToProportion[0].split("/")[1]);  //结束点x坐标分母
+                int moveToYNumerator = Integer.parseInt(moveToProportion[1].split("/")[0]);  //结束点y坐标分子
+                int moveToYDenominator = Integer.parseInt(moveToProportion[1].split("/")[1]);  //结束点y坐标分母
                 for (Integer i = 0; i < times; i++) {
                     TouchAction action = new TouchAction(App.getInstance().driver);
                     Dimension size = App.getInstance().driver.manage().window().getSize();
                     Duration duration = Duration.ofMillis(500);
                     action
-                    .press(PointOption.point(size.width*pressProportionX,size.height*pressProportionY))
+                    .press(PointOption.point(size.width*pressXNumerator/pressXDenominator,size.height*pressYNumerator/pressYDenominator))
                     .waitAction(WaitOptions.waitOptions(duration))
-                    .moveTo(PointOption.point(size.width*moveToProportionX,size.height*moveToProportionY))
+                    .moveTo(PointOption.point(size.width*moveToXNumerator/moveToXDenominator,size.height*moveToYNumerator/moveToYDenominator))
                     .release().perform();
                     System.out.println("当前滑动第 " + i+ "次");
                     try {

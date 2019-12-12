@@ -14,8 +14,8 @@
 
 
 methods:
-  search:
+  scroll:   #滑动历史记录
     steps:
-
-      - element: 搜索输入框
-        scrollSelect: $text$感冒灵
+      - scroll: 3
+        press: 1/2-1/2
+        moveTo: 1/2-1/4
