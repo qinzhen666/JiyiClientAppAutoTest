@@ -34,3 +34,6 @@ elements:
       - text: bbb
         os: android
         version: 1.0
+      - iospredicate: type=='XCUIElementTypeStaticText' AND name=='Buttons'   #ios原生定位方法
+        os: ios
+        version: 1.0

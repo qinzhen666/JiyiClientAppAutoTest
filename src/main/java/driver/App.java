@@ -41,7 +41,7 @@ public class App {
         //判断首页是否进入
         new WebDriverWait(driver,15).until(x->{
            String xml = driver.getPageSource();
-           Boolean checkMainPage = xml.contains("com.medical.fast:id/txt_title");
+           Boolean checkMainPage = xml.contains("com.medical.fast:id/txt_title") || xml.contains("saoyisao");
             System.out.println("主页元素查找结果："+checkMainPage);
             return checkMainPage;
         });

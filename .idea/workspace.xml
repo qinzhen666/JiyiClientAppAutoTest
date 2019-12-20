@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00f43f77-1ffc-4017-8343-19960a4014fe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/target/classes/page/search/SearchPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/page/search/SearchPage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/page/home/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/driver/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/page/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/page/PageObjectElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/page/PageObjectElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/driver/GlobalConfig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/driver/GlobalConfig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/page/MainPage.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/page/MainPage.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/page/example.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/page/example.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/page/search/SearchPage.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/page/search/SearchPage.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/driver/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/driver/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/driver/GlobalConfig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/driver/GlobalConfig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/page/MainPage.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/page/MainPage.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/page/search/SearchPage.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/page/search/SearchPage.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestDemo.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -103,9 +117,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestDemo.testIos" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JiyiClientApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestDemo" />
+      <option name="METHOD_NAME" value="testIos" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.SearchPageTest.scroll" />
+        <item itemvalue="JUnit.TestDemo.testIos" />
         <item itemvalue="JUnit.TestDemo.mainTest" />
         <item itemvalue="JUnit.TestDemo.test" />
       </list>
@@ -136,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576139445728</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="修改readme">
+      <created>1576139574630</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1576139574630</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,7 +187,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修改scrollSelect逻辑，增加scroll方法" />
     <MESSAGE value="修改scroll逻辑和yaml格式定义" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改scroll逻辑和yaml格式定义" />
+    <MESSAGE value="修改readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

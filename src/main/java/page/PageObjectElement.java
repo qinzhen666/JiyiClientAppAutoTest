@@ -31,13 +31,19 @@ public class PageObjectElement {
         for (HashMap<String, String> map : element) {
             if (map.get("os").equals(os) && map.get("version").equals(version)){
                 if (map.get("id") != null){
-                    return By.id(map.get("id"));
+                    if (os.equals("ios")){
+                        return MobileBy.AccessibilityId(map.get("id"));
+                    }else {
+                        return By.id(map.get("id"));
+                    }
                 }else if (map.get("text") != null){
                     return By.xpath("//*[@text='" +map.get("text") + "']");
                 }else if (map.get("xpath") != null){
                     return By.xpath(map.get("xpath"));
                 }else if (map.get("aid") != null){
                     return MobileBy.AccessibilityId(map.get("aid"));
+                }else if (map.get("iospredicate") != null){
+                    return MobileBy.iOSNsPredicateString(map.get("iospredicate"));
                 }
             }
         }return null;

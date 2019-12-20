@@ -1,12 +1,40 @@
+#主页面，用于进入各个PO
+#  Android定位符：
+#    进入SearchPage：id: edit_search_out
+#    进入HomePage(找药)： id: relative_tab_1  text：找药
+#    进入ConsultationPage(寻医)：id: relative_tab_2  text: 寻医
+#    进入MyPage(我的)：id: relative_tab_3  text: 我的
+#
+#
+#  IOS定位符：
+#     进入SearchPage：id: 输入商品名、通用名、批准文号
+
+
 methods:
   toSearchPage:
     steps:
-      - element: edit_search_out
+      - element: 进入搜索页
+
+  toHomePage:
+    steps:
+      - element: relative_tab_1
 
 
 elements:
-  edit_search_out:
+  进入搜索页:
     element:
       - id: edit_search_out
+        os: android
+        version: 1.0
+      - id: 输入商品名、通用名、批准文号
+        os: ios
+        version: 1.0
+
+  relative_tab_1:
+    element:
+      - id: relative_tab_1
+        os: android
+        version: 1.0
+      - text: 找药
         os: android
         version: 1.0

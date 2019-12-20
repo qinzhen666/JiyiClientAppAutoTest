@@ -6,13 +6,30 @@ appiumConfig:
   wait: 6
   version: 1.0
   capabilities:
-    platformName: Android    # 对应os
-    deviceName: FKFBB19120151160
-    appPackage: com.medical.fast
-    appActivity: .ui.activity.WelComeActivity
-    autoGrantPermissions: true
-    unicodeKeyboard: true
-    resetKeyboard: true
-    automationName: uiautomator2
-    #chromedriverExecutableDir: D:\QinZhen\TestDev\chromedrivers\
+    #=====通用capabilities=====
     noReset: true  #真机测试时往往不需要每次清理数据和缓存
+
+    #=====android-capabilities=====
+#    platformName: Android    # 对应os
+#    deviceName: FKFBB19120151160
+#    appPackage: com.medical.fast
+#    appActivity: .ui.activity.WelComeActivity
+#    unicodeKeyboard: true
+#    resetKeyboard: true
+#    autoGrantPermissions: true
+#    automationName: uiautomator2
+#    #chromedriverExecutableDir: D:\QinZhen\TestDev\chromedrivers\
+
+
+    #=====ios-capabilities=====
+    platformName: ios
+    deviceName: 阿特门的 iPhone    #iPhone (2)
+    platformVersion: 12.0
+    udid: auto
+    xcodeOrgId: MSDWAXZD5B    #7X8J5HLRH9      #MSDWAXZD5B
+    bundleId: suiren.ylduo.com   #com.testerallen.apple-samplecode.UICatalog   #suiren.ylduo.com
+    xcodeSigningId: iPhone Developer
+    usePrebuiltWDA: true
+    automationName: XCUITest
+    #autoAcceptAlerts: true    #Accept all iOS alerts automatically if they pop up. This includes privacy access permission alerts (e.g., location, contacts, photos)
+    autoDismissAlerts: true    #Dismiss all iOS alerts automatically if they pop up. This includes privacy access permission alerts (e.g., location, contacts, photos).
