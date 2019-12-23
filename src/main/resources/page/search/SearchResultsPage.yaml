@@ -1,0 +1,50 @@
+#搜索结果页PO所需定位符：
+#====Android定位符====：
+
+#      ==搜索结果页==
+#      默认：id：relative_normal  text: 默认
+#      报价数：id: txt_dream_price  text: 报价数
+#      价格：id: txt_price  text：价格
+#      展示类型切换：id：relative_change_type
+#      筛选：id: txt_sel  text: 筛选
+#      商品名：id: txt_name
+#      搜索框：id：edit_search_in
+#      搜索内容删除：id: img_delete
+
+
+#====IOS定位符====：
+
+
+
+
+methods:
+  getDrugName:
+    steps:
+      - element: 药品名
+        get: text
+        dump: drugName
+
+  backSearchPage:
+    steps:
+      - element: 搜索框
+      - element: 搜索内容删除
+
+
+
+elements:
+  药品名:
+    element:
+      - id: txt_name
+        os: android
+        version: 1.0
+
+  搜索框:
+    element:
+      - id: edit_search_in
+        os: android
+        version: 1.0
+  搜索内容删除:
+    element:
+      - id: img_delete
+        os: android
+        version: 1.0

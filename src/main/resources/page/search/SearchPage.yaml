@@ -1,5 +1,5 @@
 #搜索页PO所需定位符：
-#   Android定位符：
+#====Android定位符====：
 #      ==搜索页==
 #      搜索输入框： id: edit_search_in    text: 输入商品名、通用名、批准文号
 #      搜索按钮：id: bar_right_text   text: 搜索
@@ -10,20 +10,60 @@
 #      药店搜索：xpath: (//*[contains(@resource-id,'relative_item')])[1]
 #      药品搜索：xpath: (//*[contains(@resource-id,'relative_item')])[2]
 #
-#      ==搜索结果页==
-#      默认：id：relative_normal  text: 默认
-#      报价数：id: txt_dream_price  text: 报价数
-#      价格：id: txt_price  text：价格
-#      展示类型切换：id：relative_change_type
-#      筛选：id: txt_sel  text: 筛选
 
-#   IOS定位符：
+
+#====IOS定位符====：
 
 
 
 methods:
+  #通过搜索按钮搜索药品
+  searchDrugByBtn:
+    steps:
+      - element: 搜索输入
+        send: $sendText
+      - element: 点击搜索按钮
+
+  #通过提示信息搜索药品
+  searchDrugByPrompt:
+    steps:
+      - element: 搜索输入
+        send: $sendText
+      - element: 点击第一个药品提示关键字
+
+  #通过提示信息搜索药店
+  searchDrugStoreByPrompt:
+    steps:
+      - element: 搜索输入
+        send: $sendText
+      - element: 点击搜索药店提示
+
   scroll:   #滑动历史记录
     steps:
       - scroll: 3
         press: 1/2-1/2
         moveTo: 1/2-1/4
+
+
+elements:
+  搜索输入:
+    element:
+      - id: edit_search_in
+        os: android
+        version: 1.0
+  点击搜索按钮:
+    element:
+      - id: bar_right_text
+        os: android
+        version: 1.0
+  点击第一个药品提示关键字:
+    element:
+      - xpath: (//*[contains(@resource-id,'relative_item')])[2]
+        os: android
+        version: 1.0
+  点击搜索药店提示:
+    element:
+      - xpath: (//*[contains(@resource-id,'relative_item')])[1]
+        os: android
+        version: 1.0
+

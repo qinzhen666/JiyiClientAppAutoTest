@@ -26,7 +26,7 @@ elements:
       - id: edit_search_out
         os: android
         version: 1.0
-      - id: 输入商品名、通用名、批准文号
+      - iospredicate: name=='输入商品名、通用名、批准文号'
         os: ios
         version: 1.0
 
