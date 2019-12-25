@@ -9,7 +9,7 @@
 #      历史搜索：xpath: //*[contains(@resource-id,'tagFlowLayout_history')]/[@resource-id='com.medical.fast:id/txt_']
 #      药店搜索：xpath: (//*[contains(@resource-id,'relative_item')])[1]
 #      药品搜索：xpath: (//*[contains(@resource-id,'relative_item')])[2]
-#
+#      关键字：xpath:  (//*[contains(@resource-id,'txt_name')])[2]
 
 
 #====IOS定位符====：
@@ -24,19 +24,30 @@ methods:
         send: $sendText
       - element: 点击搜索按钮
 
-  #通过提示信息搜索药品
-  searchDrugByPrompt:
+  #输入搜索关键字
+  inputSearchKeyword:
     steps:
       - element: 搜索输入
         send: $sendText
-      - element: 点击第一个药品提示关键字
+
+  #通过点击第一个提示关键字搜索药品
+  searchByClickKeyword:
+    steps:
+      - element: 第一个药品提示关键字
 
   #通过提示信息搜索药店
-  searchDrugStoreByPrompt:
+  searchDrugStoreByKeyWord:
     steps:
       - element: 搜索输入
         send: $sendText
       - element: 点击搜索药店提示
+
+  #获取第一个搜索提示关键字
+  getFirstKeyWord:
+    steps:
+      - element: 第一个药品提示关键字
+        get: text
+        dump: keyword
 
   scroll:   #滑动历史记录
     steps:
@@ -56,9 +67,9 @@ elements:
       - id: bar_right_text
         os: android
         version: 1.0
-  点击第一个药品提示关键字:
+  第一个药品提示关键字:
     element:
-      - xpath: (//*[contains(@resource-id,'relative_item')])[2]
+      - xpath: (//*[contains(@resource-id,'txt_name')])[2]
         os: android
         version: 1.0
   点击搜索药店提示:

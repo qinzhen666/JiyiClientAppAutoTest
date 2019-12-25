@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -62,9 +61,9 @@ public class Element {
         return elements;
     }*/
 
-    public List<WebElement> finds(By by) {
+    public List<WebElement> findElements(By by) {
         try {
-            System.out.println(by);
+            System.out.println("findElements的by是："+by);
             return driver.findElements(by);
         }catch (Exception e){
             if (i > 3){
@@ -74,7 +73,7 @@ public class Element {
             System.out.println("进入弹框处理第" + i+ "次");
             handleAlertByPageSource();
             i++;
-            return finds(by);
+            return findElements(by);
         }
     }
 

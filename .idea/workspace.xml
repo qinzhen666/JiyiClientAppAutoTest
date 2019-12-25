@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00f43f77-1ffc-4017-8343-19960a4014fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/page/search/SearchResultsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/page/search/SearchResultsPage.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/testcasedata/searchdata/searchdrugdata.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/driver/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/Element.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/page/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/page/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/page/search/SearchPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/page/search/SearchPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/driver/GlobalConfig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/driver/GlobalConfig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/page/MainPage.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/page/MainPage.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/page/search/SearchResultsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/page/search/SearchResultsPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/page/search/SearchPage.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/page/search/SearchPage.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/page/search/SearchResultsPage.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/page/search/SearchResultsPage.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/page/search/SearchPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/page/search/SearchPageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/driver/GlobalConfig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/driver/GlobalConfig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/page/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/page/MainPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/page/MainPage.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/page/MainPage.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/page/PageObjectElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/page/PageObjectElement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/page/search/SearchPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/page/search/SearchPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/page/search/SearchPage.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/page/search/SearchPage.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,21 +106,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestDemo.mainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SearchPageTest.searchDrugByKeyword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JiyiClientApp" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestDemo" />
-      <option name="METHOD_NAME" value="mainTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="page.search.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="page.search" />
+      <option name="MAIN_CLASS_NAME" value="page.search.SearchPageTest" />
+      <option name="METHOD_NAME" value="searchDrugByKeyword" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestDemo.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SearchPageTest.searchDrugByPrompt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JiyiClientApp" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestDemo" />
-      <option name="METHOD_NAME" value="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="page.search.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="page.search" />
+      <option name="MAIN_CLASS_NAME" value="page.search.SearchPageTest" />
+      <option name="METHOD_NAME" value="searchDrugByPrompt" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -146,10 +151,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.SearchPageTest.searchDrugByBtn" />
+        <item itemvalue="JUnit.SearchPageTest.searchDrugByKeyword" />
+        <item itemvalue="JUnit.SearchPageTest.searchDrugByPrompt" />
         <item itemvalue="JUnit.SearchPageTest.scroll" />
         <item itemvalue="JUnit.TestDemo.testIos" />
-        <item itemvalue="JUnit.TestDemo.mainTest" />
-        <item itemvalue="JUnit.TestDemo.test" />
       </list>
     </recent_temporary>
   </component>
@@ -192,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576826509769</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add search case">
+      <created>1577082788265</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1577082788265</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -213,7 +225,8 @@
     <MESSAGE value="修改scroll逻辑和yaml格式定义" />
     <MESSAGE value="修改readme" />
     <MESSAGE value="增加完善iOS端自动化配置" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加完善iOS端自动化配置" />
+    <MESSAGE value="add search case" />
+    <option name="LAST_COMMIT_MESSAGE" value="add search case" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

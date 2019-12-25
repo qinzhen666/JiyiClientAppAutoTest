@@ -18,12 +18,11 @@ import java.util.stream.Stream;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class SearchPageTest {
 
-    public static SearchPage searchPage;
+    private static SearchPage searchPage;
     @BeforeAll
     static void start(){
         App.getInstance().start();
@@ -32,7 +31,7 @@ class SearchPageTest {
         }
     }
 
-    //按钮全名搜索
+    //按钮品牌名搜索
     @ParameterizedTest
     @MethodSource("searchDrugData")
     void searchDrugByBtn(String drugName, String exceptResult){
@@ -53,6 +52,20 @@ class SearchPageTest {
             list.add(arguments);
         }
         return Stream.of(list.get(0),list.get(1),list.get(2));
+    }
+
+
+    //关键字品牌名搜索
+    @Test
+    void searchDrugByKeyword(){
+        String drugName = "甘";
+        String firstKeyWord = searchPage.inputSearchKeyword(drugName).getFirstKeyWord();
+        List<String> drugNames = searchPage.searchByClickKeyword().getDrugNames();
+        assertThat(firstKeyWord,containsString(drugName));
+        drugNames.forEach(name ->{
+            System.out.println("断言");
+            assertThat(name,containsString(firstKeyWord));
+        });
     }
 
     @Test

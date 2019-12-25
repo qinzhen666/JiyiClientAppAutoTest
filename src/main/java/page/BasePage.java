@@ -40,9 +40,9 @@ public class BasePage {
         return element;
     }
 
-    public List<WebElement> finds(By by){
-        List<WebElement> elements = new Element().finds(by);
-        return elements;
+    private List<WebElement> finds(By by){
+        System.out.println("进入finds");
+        return new Element().findElements(by);
     }
 
     //解析步骤
@@ -106,9 +106,7 @@ public class BasePage {
             WebElement webElement = null;
             List<WebElement> elementList = null;
             if (step.get("element") != null){
-                System.out.println("开始查找element");
-                System.out.println(step.get("element"));
-                System.out.println("==="+model.elements.get("edit_search_out"));
+                System.out.println("开始查找element: "+ step.get("element"));
 //                webElement = find(model.elements.get(step.get("element")).getLocator());
                 if (step.get("finds") == null){
                     webElement = find(model.elements.get(step.get("element")).getLocator());
@@ -127,14 +125,14 @@ public class BasePage {
                         webElement.click();
                     }
                 }else if (step.get("finds").equals("text")){
-                    elementList = finds(model.elements.get("element").getLocator());
+                    elementList = finds(model.elements.get(step.get("element")).getLocator());
                     List<String> eleText = new ArrayList<>();
                     elementList.forEach(ele->{
                         eleText.add(ele.getText());
                     });
                     attributeResult.put("findsTextList",eleText);
                 }else if (step.get("finds").equals("size")){
-                    elementList = finds(model.elements.get("element").getLocator());
+                    elementList = finds(model.elements.get(step.get("element")).getLocator());
                     int size = elementList.size();
                     attributeResult.put("size",size);
                 }

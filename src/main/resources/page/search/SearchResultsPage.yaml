@@ -7,7 +7,7 @@
 #      价格：id: txt_price  text：价格
 #      展示类型切换：id：relative_change_type
 #      筛选：id: txt_sel  text: 筛选
-#      商品名：id: txt_name
+#      药品名：id: txt_name
 #      搜索框：id：edit_search_in
 #      搜索内容删除：id: img_delete
 
@@ -23,6 +23,11 @@ methods:
       - element: 药品名
         get: text
         dump: drugName
+
+  getDrugNames:
+    steps:
+      - element: 药品名
+        finds: text
 
   backSearchPage:
     steps:

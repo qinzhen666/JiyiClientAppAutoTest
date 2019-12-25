@@ -13,14 +13,27 @@ public class SearchPage extends BasePage {
         return new SearchResultsPage();
     }
 
-    public SearchResultsPage searchDrugByPrompt(){
+    public SearchPage inputSearchKeyword(String searchInfo){
+        HashMap<String,String> map = new HashMap<>();
+        map.put("sendText",searchInfo);
+        setSendParam(map);
+        parseSteps();
+        return new SearchPage();
+    }
+
+    public SearchResultsPage searchByClickKeyword(){
         parseSteps();
         return new SearchResultsPage();
     }
 
-    public SearchResultsPage searchDrugStoreByPrompt(){
+    public SearchResultsPage searchDrugStoreByKeyWord(){
         parseSteps();
         return new SearchResultsPage();
+    }
+
+    public String getFirstKeyWord(){
+        parseSteps();
+        return getAttributeResult().get("keyword").toString();
     }
 
     public void scroll(){
