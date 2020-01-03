@@ -18,7 +18,7 @@ public class SearchPage extends BasePage {
         map.put("sendText",searchInfo);
         setSendParam(map);
         parseSteps();
-        return new SearchPage();
+        return this;
     }
 
     public SearchResultsPage searchByClickKeyword(){
@@ -26,7 +26,10 @@ public class SearchPage extends BasePage {
         return new SearchResultsPage();
     }
 
-    public SearchResultsPage searchDrugStoreByKeyWord(){
+    public SearchResultsPage searchDrugStoreByInput(String searchInfo){
+        HashMap<String,String> map = new HashMap<>();
+        map.put("sendText",searchInfo);
+        setSendParam(map);
         parseSteps();
         return new SearchResultsPage();
     }
@@ -35,6 +38,37 @@ public class SearchPage extends BasePage {
         parseSteps();
         return getAttributeResult().get("keyword").toString();
     }
+
+    public SearchResultsPage searchByHistory(){
+        parseSteps();
+        return new SearchResultsPage();
+    }
+
+    public SearchResultsPage searchByHot(){
+        parseSteps();
+        return new SearchResultsPage();
+    }
+
+    public String getFirstHot(){
+        parseSteps();
+        return getAttributeResult().get("hotSearch").toString();
+    }
+
+    public SearchPage deleteHistorySearch(){
+        parseSteps();
+        return this;
+    }
+
+    public SearchPage deleteHistoryCancel(){
+        parseSteps();
+        return this;
+    }
+
+    public Integer getHistorySearchSize(){
+        parseSteps();
+        return (Integer) getAttributeResult().get("size");
+    }
+
 
     public void scroll(){
         parseSteps();

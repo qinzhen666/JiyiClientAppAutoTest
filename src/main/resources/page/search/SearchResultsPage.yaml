@@ -1,23 +1,70 @@
 #搜索结果页PO所需定位符：
 #====Android定位符====：
 
-#      ==搜索结果页==
+#      ==搜索结果页v1.0版本==
 #      默认：id：relative_normal  text: 默认
-#      报价数：id: txt_dream_price  text: 报价数
-#      价格：id: txt_price  text：价格
+#      报价数按钮：id: txt_dream_price  text: 报价数
+#      报价数：id: txt_count
+#      价格按钮：id: relative_price   text：价格
+#      价格：id: txt_price
 #      展示类型切换：id：relative_change_type
-#      筛选：id: txt_sel  text: 筛选
+#      筛选按钮：id: txt_sel  text: 筛选
+#      筛选品牌名：id: tv_city_name
 #      药品名：id: txt_name
 #      搜索框：id：edit_search_in
 #      搜索内容删除：id: img_delete
+#      药店名：id: txt_shop_name
+#      确定：id: txt_confirm
 
 
 #====IOS定位符====：
 
 
 
-
+#====行为流====
 methods:
+  #向右滑动收起筛选栏
+  scrollCancelFilter:
+    steps:
+      - scroll: 1
+        press: 1/2-1/2
+        moveTo: 4/5-1/2
+  #选择最前两个筛选项
+  chooseFilter:
+    steps:
+      - element: 筛选项1
+      - element: 筛选项2
+      - element: 确定
+  #获取筛选条件
+  getFilterSort:
+    steps:
+      - element: 筛选按钮
+      - element: 筛选品牌名
+        finds: text
+  #按报价数排序，获取排序列表
+  getTenantNum:
+    steps:
+      - element: 报价数排序
+      - element: 报价数
+        finds: text
+  #按价格排序，获取排序列表
+  getDrugPrices:
+    steps:
+      - element: 价格排序
+      - element: 药品价格
+        finds: text
+
+  getDrugStoreNames:
+    steps:
+      - element: 药店名
+        finds: text
+
+  getDrugStoreName:
+    steps:
+      - element: 药店名
+        get: text
+        dump: drugStoreName
+
   getDrugName:
     steps:
       - element: 药品名
@@ -34,9 +81,58 @@ methods:
       - element: 搜索框
       - element: 搜索内容删除
 
-
-
+#====定位元素====
 elements:
+  确定:
+    element:
+      - id: txt_confirm
+        os: android
+        version: 1.0
+  筛选项1:
+    element:
+      - xpath: (//*[contains(@resource-id,'tv_city_name')])[1]
+        os: android
+        version: 1.0
+  筛选项2:
+    element:
+      - xpath: (//*[contains(@resource-id,'tv_city_name')])[2]
+        os: android
+        version: 1.0
+  筛选品牌名:
+    element:
+      - id: tv_city_name
+        os: android
+        version: 1.0
+  筛选按钮:
+    element:
+      - id: txt_sel
+        os: android
+        version: 1.0
+  报价数排序:
+    element:
+      - id: txt_dream_price
+        os: android
+        version: 1.0
+  报价数:
+    element:
+      - id: txt_count
+        os: android
+        version: 1.0
+  价格排序:
+    element:
+      - id: relative_price
+        os: android
+        version: 1.0
+  药品价格:
+    element:
+      - id: txt_price
+        os: android
+        version: 1.0
+  药店名:
+    element:
+      - id: txt_shop_name
+        os: android
+        version: 1.0
   药品名:
     element:
       - id: txt_name

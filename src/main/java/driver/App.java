@@ -49,7 +49,6 @@ public class App {
 
     public String getPlatform(){
         String platformName = driver.getCapabilities().getCapability("platformName").toString().toLowerCase();
-        System.out.println("platformName:" +platformName);
         return platformName.toLowerCase();
     }
 

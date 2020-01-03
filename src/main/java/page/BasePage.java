@@ -45,6 +45,11 @@ public class BasePage {
         return new Element().findElements(by);
     }
 
+    public boolean checkExist(String checkXpath){
+        String xml = App.driver.getPageSource();
+        return xml.contains(checkXpath);
+    }
+
     //解析步骤
     /**
      * yaml默认以和page中相同method名和相同包结构位置放置

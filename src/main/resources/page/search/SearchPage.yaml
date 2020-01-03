@@ -1,15 +1,19 @@
 #搜索页PO所需定位符：
 #====Android定位符====：
-#      ==搜索页==
+#      ==搜索页v1.0版本==
 #      搜索输入框： id: edit_search_in    text: 输入商品名、通用名、批准文号
 #      搜索按钮：id: bar_right_text   text: 搜索
 #      返回：id: bar_left_btn
 #      删除历史记录：id: image_delete
 #      删除输入框内容：id: img_delete
-#      历史搜索：xpath: //*[contains(@resource-id,'tagFlowLayout_history')]/[@resource-id='com.medical.fast:id/txt_']
-#      药店搜索：xpath: (//*[contains(@resource-id,'relative_item')])[1]
+#      历史搜索：xpath: //*[contains(@resource-id,'tagFlowLayout_history')]//android.widget.FrameLayout
+#      药店提示关键字：xpath: (//*[contains(@resource-id,'txt_name')])[1]
 #      药品搜索：xpath: (//*[contains(@resource-id,'relative_item')])[2]
 #      关键字：xpath:  (//*[contains(@resource-id,'txt_name')])[2]
+#      历史搜索首位：xpath: (//*[contains(@resource-id,'tagFlowLayout_history')]/android.widget.FrameLayout)[1]
+#      热门搜索首位：xpath: (//*[contains(@resource-id,'tagFlowLayout_hot')]/android.widget.FrameLayout//android.widget.TextView)[1]
+#      确定：text: 确定
+#      取消：text: 取消
 
 
 #====IOS定位符====：
@@ -17,6 +21,41 @@
 
 
 methods:
+  #获取历史搜索数量
+  getHistorySearchSize:
+    steps:
+      - element: 历史搜索size
+        finds: size
+
+  #删除历史搜索
+  deleteHistorySearch:
+    steps:
+      - element: 历史搜索删除
+      - element: 确定
+
+  #删除历史搜索取消
+  deleteHistoryCancel:
+    steps:
+      - element: 历史搜索删除
+      - element: 取消
+
+  #获取首位热门搜索
+  getFirstHot:
+    steps:
+      - element: 热门搜索
+        get: text
+        dump: hotSearch
+
+  #通过热门搜索
+  searchByHot:
+    steps:
+      - element: 热门搜索
+
+  #通过历史搜索
+  searchByHistory:
+    steps:
+      - element: 历史搜索
+
   #通过搜索按钮搜索药品
   searchDrugByBtn:
     steps:
@@ -36,11 +75,12 @@ methods:
       - element: 第一个药品提示关键字
 
   #通过提示信息搜索药店
-  searchDrugStoreByKeyWord:
+  searchDrugStoreByInput:
     steps:
       - element: 搜索输入
         send: $sendText
-      - element: 点击搜索药店提示
+      - element: 药店提示关键字
+
 
   #获取第一个搜索提示关键字
   getFirstKeyWord:
@@ -49,7 +89,8 @@ methods:
         get: text
         dump: keyword
 
-  scroll:   #滑动历史记录
+  #滑动历史记录
+  scroll:
     steps:
       - scroll: 3
         press: 1/2-1/2
@@ -57,6 +98,39 @@ methods:
 
 
 elements:
+  确定:
+    element:
+      - text: 确定
+        os: android
+        version: 1.0
+  取消:
+    element:
+      - text: 取消
+        os: android
+        version: 1.0
+
+  历史搜索size:
+    element:
+      - xpath: //*[contains(@resource-id,'tagFlowLayout_history')]//android.widget.FrameLayout
+        os: android
+        version: 1.0
+
+  历史搜索删除:
+    element:
+      - id: image_delete
+        os: android
+        version: 1.0
+
+  热门搜索:
+    element:
+      - xpath: (//*[contains(@resource-id,'tagFlowLayout_hot')]/android.widget.FrameLayout//android.widget.TextView)[1]
+        os: android
+        version: 1.0
+  历史搜索:
+    element:
+      - xpath: (//*[contains(@resource-id,'tagFlowLayout_history')]/android.widget.FrameLayout)[1]
+        os: android
+        version: 1.0
   搜索输入:
     element:
       - id: edit_search_in
@@ -72,9 +146,9 @@ elements:
       - xpath: (//*[contains(@resource-id,'txt_name')])[2]
         os: android
         version: 1.0
-  点击搜索药店提示:
+  药店提示关键字:
     element:
-      - xpath: (//*[contains(@resource-id,'relative_item')])[1]
+      - xpath: (//*[contains(@resource-id,'txt_name')])[1]
         os: android
         version: 1.0
 
